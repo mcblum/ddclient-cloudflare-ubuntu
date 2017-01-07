@@ -1,13 +1,17 @@
-# What
+What
+======
 These steps will install ddclient on your Ubuntu server and allow it to update any Cloudflare domains you want with your current dynamic IP address. The computer on which you install this script should be one that remains at the same location as the dynamic IP you'd like to link.
 
-# Why
+Why
+======
 Let's say you want to host a VPN server, a website, your files or anything else at home. Unless you have a static IP address, which in some cases you can't get without signing up for a business account, you'll need a way to associate your dynamic IP address with a domain name so your service doesn't get interrupted when your assigned public IP changes. 
 
-# Which Technologies
+Which Technologies
+======
 This guide focuses on installing [ddclient](https://github.com/wimpunk/ddclient) on Ubuntu (I used 16.04 server) and integrating it with Cloudflare. There are many other installation methods, so check out the ddclient repo for a full list.
 
-# How
+How
+======
 Ssh into your Ubuntu machine and become the root user:
 ```bash
 ssh username@ipaddress.of.machine -p port_you_set_default_is_22
@@ -80,37 +84,39 @@ Once everything is working, perform one final test by changing one of your Cloud
  In order to double check that everything is set up correctly, run `ddclient -query` and make sure that this line is correct: `use=web, web=dnspark address is your.public.ip`. In order to access the query mode, press control+c.  
  
  
- # Possible Errors + Their Solutions
+Possible Errors + Their Solutions
+======
  
- ## Can't locate Data/Validate/IP.pm in @INC (you may need to install the Data::Validate::IP module)
- 
- ```bash
- apt-get install libdata-validate-ip-perl
- ```  
- 
- 
- ## FATAL: Error loading the Perl module JSON::Any needed for Cloudflare update.
- 
- ```bash
- apt-get install libjson-any-perl
- ```
- 
- ## Can't exec "sendmail": No such file or directory at /usr/sbin/ddclient line 1584.
- 
- ```bash
- apt-get install sendmail
- ```
- 
- ## WARNING: local host name (server) is not qualified;
- 
- This is an error that sendmail may give you on install. If you want, you can change your hostname to be something like server.domain.com, which would be qualified. This is not necessary, though.  
- 
- ## Error loading the Perl module IO::Socket::SSL needed for SSL connect.
- ```bash
- apt-get install libio-socket-ssl-perl
- ```
- 
- # Final Thoughts
- That's it! Your setup should be complete. Please let me know if you encounter any errors that aren't listed below and submit a pull request if you have any corrections, additions or improvements.  
-  
+Can't locate Data/Validate/IP.pm in @INC (you may need to install the Data::Validate::IP module)
+------
+```bash
+apt-get install libdata-validate-ip-perl
+```  
+
+FATAL: Error loading the Perl module JSON::Any needed for Cloudflare update.
+------
+```bash
+apt-get install libjson-any-perl
+```
+
+Can't exec "sendmail": No such file or directory at /usr/sbin/ddclient line 1584.
+------
+```bash
+apt-get install sendmail
+```
+
+WARNING: local host name (server) is not qualified;
+------
+This is an error that sendmail may give you on install. If you want, you can change your hostname to be something like server.domain.com, which would be qualified. This is not necessary, though.  
+
+Error loading the Perl module IO::Socket::SSL needed for SSL connect.
+------
+```bash
+apt-get install libio-socket-ssl-perl
+```
+
+Final Thoughts
+======
+That's it! Your setup should be complete. Please let me know if you encounter any errors that aren't listed below and submit a pull request if you have any corrections, additions or improvements.  
+
 Matt
