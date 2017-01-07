@@ -79,36 +79,38 @@ Once everything is working, perform one final test by changing one of your Cloud
  ```
  In order to double check that everything is set up correctly, run `ddclient -query` and make sure that this line is correct: `use=web, web=dnspark address is your.public.ip`. In order to access the query mode, press control+c.  
  
- That's it! Your setup should be complete. Please let me know if you encounter any errors that aren't listed below and submit a pull request if you have any corrections.  
- 
- Matt
  
  # Possible Errors + Their Solutions
  
- ### Can't locate Data/Validate/IP.pm in @INC (you may need to install the Data::Validate::IP module)
+ ## Can't locate Data/Validate/IP.pm in @INC (you may need to install the Data::Validate::IP module)
  
  ```bash
  apt-get install libdata-validate-ip-perl
  ```  
  
  
- ### FATAL: Error loading the Perl module JSON::Any needed for Cloudflare update.
+ ## FATAL: Error loading the Perl module JSON::Any needed for Cloudflare update.
  
  ```bash
  apt-get install libjson-any-perl
  ```
  
- ### Can't exec "sendmail": No such file or directory at /usr/sbin/ddclient line 1584.
+ ## Can't exec "sendmail": No such file or directory at /usr/sbin/ddclient line 1584.
  
  ```bash
  apt-get install sendmail
  ```
  
- ### WARNING: local host name (server) is not qualified;
+ ## WARNING: local host name (server) is not qualified;
  
  This is an error that sendmail may give you on install. If you want, you can change your hostname to be something like server.domain.com, which would be qualified. This is not necessary, though.  
  
- ### Error loading the Perl module IO::Socket::SSL needed for SSL connect.
+ ## Error loading the Perl module IO::Socket::SSL needed for SSL connect.
  ```bash
  apt-get install libio-socket-ssl-perl
  ```
+ 
+ # Final Thoughts
+ That's it! Your setup should be complete. Please let me know if you encounter any errors that aren't listed below and submit a pull request if you have any corrections, additions or improvements.  
+  
+Matt
