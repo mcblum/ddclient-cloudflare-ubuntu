@@ -81,7 +81,15 @@ Once everything is working, perform one final test by changing one of your Cloud
  ```bash
  service ddclient start
  ```
- In order to double check that everything is set up correctly, run `ddclient -query` and make sure that this line is correct: `use=web, web=dnspark address is your.public.ip`. In order to access the query mode, press control+c.  
+ In order to double check that everything is set up correctly, run `ddclient -query` and make sure that this line is correct: `use=web, web=dnspark address is your.public.ip`. In order to access the query mode, press control+c. After the script has run a couple times you'll also want to check the "mail" that the script is creating because there may be one more issue. Open the mail by running:
+ ```bash
+ sudo vim /etc/mail/root
+ ```
+ If you see an error that looks like this:
+ ```bash
+ WARNING:  file /var/cache/ddclient/ddclient.cache, line 3: Invalid Value for keyword 'ip' = ''
+ ```
+ you may need to update the version of ddclient. The error has been fixed in more recent versions, but [this post](http://askubuntu.com/questions/64219/why-is-ddclient-giving-me-an-invalid-ip-error-when-trying-to-update-dynamic-dn) explains a bit about what's going on.
  
  
 Possible Errors + Their Solutions
