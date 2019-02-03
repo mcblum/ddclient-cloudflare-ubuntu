@@ -23,7 +23,7 @@ cd /tmp
 ```
 Clone the repo into the directory you chose:
 ```bash
-git clone https://github.com/wimpunk/ddclient.git
+git clone https://github.com/ddclient/ddclient.git
 ```
 Next enter the new ddclient directory and copy ddclient to `/usr/sbin`:
 ```bash
